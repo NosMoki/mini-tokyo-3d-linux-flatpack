@@ -1,0 +1,25 @@
+[package]
+name = "mini-tokyo-3d-gnome"
+version = "4.1.0"
+edition = "2024"
+rust-version = "1.92"
+description = "Mini Tokyo 3D for GNOME"
+license = "MIT"
+publish = false
+exclude = ["/_build"]
+
+[[bin]]
+name = "mini-tokyo-3d"
+path = "src/main.rs"
+
+[dependencies]
+adw = { package = "libadwaita", version = "0.9", features = ["v1_8"] }
+gtk = { package = "gtk4", version = "0.11", features = ["v4_14"] }
+libsecret = { version = "0.9", features = ["v0_20"] }
+soup = { package = "soup3", version = "0.9" }
+webkit = { package = "webkit6", version = "0.6", features = ["v2_44"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Mini Tokyo 3D
+Name[ja]=ミニ東京3D
+GenericName=Transit Map
+GenericName[ja]=交通マップ
+Comment=A real-time 3D digital map of Tokyo’s public transport system
+Comment[ja]=東京の公共交通機関のリアルタイム3Dデジタルマップ
+Exec=mini-tokyo-3d
+Icon=io.github.nosmoki.MiniTokyo3D
+Terminal=false
+Categories=Education;Geography;Maps;
+Keywords=Tokyo;train;railway;subway;metro;bus;flight;transit;timetable;live camera;3D;map;東京;電車;鉄道;地下鉄;バス;
+StartupNotify=true

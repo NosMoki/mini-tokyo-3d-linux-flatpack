@@ -1,0 +1,52 @@
+# Flatpak manifest for Mini Tokyo 3D. Build it with ./build-flatpak.sh, which
+# first stages the web app into _build/web with build-web.mjs.
+id: io.github.nosmoki.MiniTokyo3D
+runtime: org.gnome.Platform
+runtime-version: '51'
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+command: mini-tokyo-3d
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  # Sound of the live cameras
+  - --socket=pulseaudio
+  # WebGL
+  - --device=dri
+build-options:
+  append-path: /usr/lib/sdk/rust-stable/bin
+modules:
+  - name: mini-tokyo-3d
+    buildsystem: simple
+    build-options:
+      # Cargo downloads the crates in Cargo.lock
+      build-args:
+        - --share=network
+      env:
+        CARGO_HOME: /run/build/mini-tokyo-3d/cargo-home
+    sources:
+      - type: dir
+        path: .
+        skip:
+          - target
+          - .flatpak-builder
+          - _build/cache
+          - _build/stage
+          - _build/flatpak
+          - _build/flatpak-builder
+          - _build/repo
+          - _build/mini-tokyo-3d.flatpak
+    build-commands:
+      - cargo build --release --locked
+      - install -Dm755 target/release/mini-tokyo-3d -t /app/bin
+      - mkdir -p /app/share/mini-tokyo-3d
+      - cp -r _build/web /app/share/mini-tokyo-3d/web
+      - install -Dm644 data/io.github.nosmoki.MiniTokyo3D.desktop -t /app/share/applications
+      - install -Dm644 data/io.github.nosmoki.MiniTokyo3D.metainfo.xml -t /app/share/metainfo
+      - install -Dm644 data/io.github.nosmoki.MiniTokyo3D.gschema.xml -t /app/share/glib-2.0/schemas
+      - glib-compile-schemas /app/share/glib-2.0/schemas
+      - install -Dm644 data/icons/hicolor/scalable/apps/io.github.nosmoki.MiniTokyo3D.svg -t /app/share/icons/hicolor/scalable/apps
+      - install -Dm644 data/icons/hicolor/symbolic/apps/io.github.nosmoki.MiniTokyo3D-symbolic.svg -t /app/share/icons/hicolor/symbolic/apps

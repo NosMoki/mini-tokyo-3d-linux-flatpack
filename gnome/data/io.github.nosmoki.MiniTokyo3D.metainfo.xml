@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.nosmoki.MiniTokyo3D</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Mini Tokyo 3D</name>
+  <summary>See Tokyo’s trains, buses and flights move in real time</summary>
+  <developer id="io.github.nagix">
+    <name>Akihiko Kusanagi</name>
+  </developer>
+  <description>
+    <p>
+      Mini Tokyo 3D is a real-time 3D digital map of Tokyo’s public transport system. Every train runs along
+      the railway network by its timetable and live delays, together with buses and the flights at Haneda and
+      Narita airports.
+    </p>
+    <p>This GNOME app runs the same Mini Tokyo 3D as minitokyo3d.com, with all of its features:</p>
+    <ul>
+      <li>Trains, buses and flights in 3D, sized and scaled with the zoom as on the website</li>
+      <li>Live cameras, precipitation, fireworks, PLATEAU 3D city and GTFS bus plugins</li>
+      <li>Train information, station details, route search and playback of any time</li>
+      <li>Follows the system’s light or dark style, with keyboard shortcuts and fullscreen</li>
+    </ul>
+    <p>The map needs a free Mapbox access token, which the app asks for on first launch and keeps in GNOME Keyring.</p>
+  </description>
+  <launchable type="desktop-id">io.github.nosmoki.MiniTokyo3D.desktop</launchable>
+  <url type="homepage">https://minitokyo3d.com</url>
+  <url type="bugtracker">https://github.com/NosMoki/mini-tokyo-3d-rust-converting/issues</url>
+  <url type="vcs-browser">https://github.com/NosMoki/mini-tokyo-3d-rust-converting</url>
+  <url type="help">https://minitokyo3d.com/user-guide/</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://minitokyo3d.com/images/screenshot1.jpg</image>
+      <caption>Trains around Tokyo Station</caption>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <display_length compare="ge">360</display_length>
+    <internet>always</internet>
+  </requires>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <branding>
+    <color type="primary" scheme_preference="light">#b5e08a</color>
+    <color type="primary" scheme_preference="dark">#2d4517</color>
+  </branding>
+  <releases>
+    <release version="4.1.0" date="2026-11-03">
+      <description>
+        <p>First release of the GNOME app.</p>
+      </description>
+    </release>
+  </releases>
+</component>
