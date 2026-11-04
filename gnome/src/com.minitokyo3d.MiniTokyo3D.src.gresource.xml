@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/minitokyo3d/MiniTokyo3D/js">
+    <file>main.js</file>
+    <file>window.js</file>
+    <file>preferences.js</file>
+    <file>scheme.js</file>
+    <file>secrets.js</file>
+  </gresource>
+  <gresource prefix="/com/minitokyo3d/MiniTokyo3D">
+    <file preprocess="xml-stripblanks">window.ui</file>
+    <file preprocess="xml-stripblanks">preferences.ui</file>
+    <file preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
+  </gresource>
+</gresources>

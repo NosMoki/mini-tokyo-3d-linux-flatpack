@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="MiniTokyo3DPreferencesDialog" parent="AdwPreferencesDialog">
+    <property name="content-width">560</property>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="title" translatable="yes">General</property>
+        <property name="icon-name">preferences-system-symbolic</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Map</property>
+            <child>
+              <object class="AdwComboRow" id="languageRow">
+                <property name="title" translatable="yes">_Language</property>
+                <property name="subtitle" translatable="yes">Labels and panels on the map</property>
+                <property name="use-underline">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Mapbox</property>
+            <property name="description" translatable="yes">Required to display the map</property>
+            <property name="header-suffix">
+              <object class="GtkLinkButton">
+                <property name="label" translatable="yes">Get a Token</property>
+                <property name="uri">https://account.mapbox.com/</property>
+                <property name="valign">center</property>
+              </object>
+            </property>
+            <child>
+              <object class="AdwPasswordEntryRow" id="mapboxRow">
+                <property name="title" translatable="yes">_Access Token</property>
+                <property name="use-underline">True</property>
+                <property name="show-apply-button">True</property>
+                <property name="sensitive">False</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Public Transportation Open Data Center</property>
+            <property name="description" translatable="yes">Optional. Enables real-time train positions and service status for more railways.</property>
+            <property name="header-suffix">
+              <object class="GtkLinkButton">
+                <property name="label" translatable="yes">Sign Up</property>
+                <property name="uri">https://developer.odpt.org/signup</property>
+                <property name="valign">center</property>
+              </object>
+            </property>
+            <child>
+              <object class="AdwPasswordEntryRow" id="odptRow">
+                <property name="title" translatable="yes">_ODPT Center Token</property>
+                <property name="use-underline">True</property>
+                <property name="show-apply-button">True</property>
+                <property name="sensitive">False</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwPasswordEntryRow" id="challengeRow">
+                <property name="title" translatable="yes">Open Data _Challenge Token</property>
+                <property name="use-underline">True</property>
+                <property name="show-apply-button">True</property>
+                <property name="sensitive">False</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Access tokens are stored securely in your keyring.</property>
+                <property name="wrap">True</property>
+                <property name="xalign">0</property>
+                <style>
+                  <class name="dim-label"/>
+                  <class name="caption"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

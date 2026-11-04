@@ -1,0 +1,28 @@
+#!@GJS@ -m
+
+import GLib from 'gi://GLib';
+import {exit, programArgs, programInvocationName} from 'system';
+
+imports.package.init({
+    name: '@APP_ID@',
+    version: '@VERSION@',
+    prefix: '@PREFIX@',
+    libdir: '@LIBDIR@',
+});
+pkg.initGettext();
+pkg.initFormat();
+
+const loop = new GLib.MainLoop(null, false);
+import('resource:///com/minitokyo3d/MiniTokyo3D/js/main.js').then(async ({main}) => {
+    loop.quit();
+    const exitCode = await main([programInvocationName, ...programArgs], {
+        appId: pkg.name,
+        version: pkg.version,
+        webDir: GLib.build_filenamev([pkg.pkgdatadir, 'web'])
+    });
+    exit(exitCode);
+}).catch(error => {
+    logError(error);
+    exit(1);
+});
+loop.run();

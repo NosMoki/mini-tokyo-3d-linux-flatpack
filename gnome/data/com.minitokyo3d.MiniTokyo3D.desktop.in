@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Mini Tokyo 3D
+GenericName=Transit Map
+Comment=Real-time 3D map of Tokyo's public transport
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=Tokyo;Japan;Train;Railway;Subway;Metro;Bus;Flight;Transit;Timetable;3D;Map;
+Exec=@BIN@ %U
+Icon=@APP_ID@
+Terminal=false
+Type=Application
+Categories=Education;Geography;Maps;
+StartupNotify=true

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="com.minitokyo3d.MiniTokyo3D">
+  <schema id="com.minitokyo3d.MiniTokyo3D" path="/com/minitokyo3d/MiniTokyo3D/">
+    <key name="language" type="s">
+      <choices>
+        <choice value=""/>
+        <choice value="de"/>
+        <choice value="en"/>
+        <choice value="es"/>
+        <choice value="fr"/>
+        <choice value="ja"/>
+        <choice value="ko"/>
+        <choice value="ne"/>
+        <choice value="pt-BR"/>
+        <choice value="th"/>
+        <choice value="zh-Hans"/>
+        <choice value="zh-Hant"/>
+      </choices>
+      <default>''</default>
+      <summary>Map language</summary>
+      <description>Language of the labels and panels on the map. An empty value follows the system language.</description>
+    </key>
+    <key name="window-width" type="i">
+      <default>1280</default>
+      <summary>Window width</summary>
+    </key>
+    <key name="window-height" type="i">
+      <default>800</default>
+      <summary>Window height</summary>
+    </key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Window maximized</summary>
+    </key>
+  </schema>
+</schemalist>

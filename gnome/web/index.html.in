@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+	Entry page of the GNOME desktop app, derived from public/index.html. The
+	analytics and social/SEO tags are dropped, and the access tokens and the
+	language come from the host app (window.mt3dDesktop, injected from
+	gnome/src/window.js) instead of being written into the page at build time.
+-->
+<html lang="ja_JP" style="overscroll-behavior: none;">
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="mini-tokyo-3d.min.css" />
+	<title>Mini Tokyo 3D</title>
+	<meta name="viewport" content="user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width, height=device-height, initial-scale=1" />
+	<script src="mini-tokyo-3d.min.js"></script>
+	@PLUGIN_SCRIPTS@
+</head>
+<body style="width: 100%; height: 100%; margin: 0; padding: 0; position: absolute;">
+	<div id="map" style="width: 100%; height: 100%;"></div>
+	<script>
+		const matchLang = location.search.match(/lang=(.*?)(?:&|$)/),
+			matchSelection = location.search.match(/selection=(.*?)(?:&|$)/),
+			matchGtfsUrl = location.search.match(/gtfsurl=(.*?)(?:&|$)/),
+			matchVehiclePositionUrl = location.search.match(/gtfsvpurl=(.*?)(?:&|$)/),
+			matchGtfsColor = location.search.match(/gtfscolor=(.*?)(?:&|$)/),
+			matchHash = location.hash.match(/[^\d\.\-]*([\d\.\-]*)\/?([\d\.\-]*)\/?([\d\.\-]*)\/?([\d\.\-]*)\/?([\d\.\-]*)/),
+			options = {
+				container: 'map',
+				plugins: [@PLUGINS@]
+			};
+
+		// Desktop settings: access tokens from the keyring and the language
+		// chosen in Preferences. They take the place of the build-time overrides
+		// of the web build, so the URL query parameters below still win.
+		const desktop = window.mt3dDesktop || {};
+
+		if (desktop.accessToken) {
+			options.accessToken = desktop.accessToken;
+		}
+		if (desktop.secrets) {
+			options.secrets = desktop.secrets;
+		}
+		if (desktop.lang) {
+			options.lang = desktop.lang;
+		}
+
+		// overrides
+		if (matchLang) {
+			options.lang = decodeURIComponent(matchLang[1]);
+		}
+		if (matchSelection) {
+			options.selection = decodeURIComponent(matchSelection[1]);
+		}
+		if (matchHash[1]) {
+			options.zoom = +matchHash[1];
+		}
+		if (matchHash[2] && matchHash[3]) {
+			options.center = [+matchHash[3], +matchHash[2]];
+		}
+		if (matchHash[4]) {
+			options.bearing = +matchHash[4];
+		}
+		if (matchHash[5]) {
+			options.pitch = +matchHash[5];
+		}
+		if (matchGtfsUrl && matchGtfsColor) {
+			// Show only the specified GTFS feed (which may be outside Japan) and let
+			// its agency_timezone drive the clock, instead of the default Tokyo data.
+			options.dataUrl = '';
+			options.dataSources = [{
+				id: 'gtfs',
+				gtfsUrl: decodeURIComponent(matchGtfsUrl[1]),
+				vehiclePositionUrl: matchVehiclePositionUrl ? decodeURIComponent(matchVehiclePositionUrl[1]) : undefined,
+				color: `#${decodeURIComponent(matchGtfsColor[1])}`
+			}];
+		}
+
+		const map = new mt3d.Map(options);
+	</script>
+</body>
+</html>

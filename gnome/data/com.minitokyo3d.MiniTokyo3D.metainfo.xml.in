@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.minitokyo3d.MiniTokyo3D</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Mini Tokyo 3D</name>
+  <summary>Real-time 3D map of Tokyo's public transport</summary>
+  <description>
+    <p>
+      Mini Tokyo 3D is a real-time 3D digital map of the public transport system
+      in the Greater Tokyo area. Trains and aircraft move across the city based on
+      timetables and live operating data from the Public Transportation Open Data
+      Center.
+    </p>
+    <ul>
+      <li>Follow a train or aircraft with several camera tracking modes</li>
+      <li>See delays and suspensions highlighted on the railway lines</li>
+      <li>Switch to the underground view to see subway lines and stations</li>
+      <li>Replay any time of the day in playback mode</li>
+      <li>Search for routes between stations</li>
+      <li>Save power with the eco mode</li>
+    </ul>
+    <p>
+      A Mapbox access token is required to display the map. Tokens for the Public
+      Transportation Open Data Center are optional and enable real-time data for
+      more railways.
+    </p>
+  </description>
+  <developer id="com.minitokyo3d">
+    <name translate="no">Akihiko Kusanagi</name>
+  </developer>
+  <launchable type="desktop-id">com.minitokyo3d.MiniTokyo3D.desktop</launchable>
+  <url type="homepage">https://minitokyo3d.com</url>
+  <url type="bugtracker">https://github.com/nagix/mini-tokyo-3d/issues</url>
+  <url type="help">https://minitokyo3d.com/docs/master/</url>
+  <url type="donation">https://github.com/sponsors/nagix</url>
+  <url type="vcs-browser">https://github.com/nagix/mini-tokyo-3d</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://minitokyo3d.com/images/screenshot1.jpg</image>
+      <caption>Trains moving through central Tokyo</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://minitokyo3d.com/images/screenshot2.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://minitokyo3d.com/images/screenshot3.jpg</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <internet>always</internet>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <translation type="gettext">com.minitokyo3d.MiniTokyo3D</translation>
+  <branding>
+    <color type="primary" scheme_preference="light">#d9e6f2</color>
+    <color type="primary" scheme_preference="dark">#1b2a3a</color>
+  </branding>
+  <releases>
+    <release version="4.1.0" date="2026-09-29"/>
+  </releases>
+</component>

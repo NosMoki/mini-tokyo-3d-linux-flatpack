@@ -1,0 +1,10 @@
+# List of source files containing translatable strings.
+gnome/data/com.minitokyo3d.MiniTokyo3D.desktop.in
+gnome/data/com.minitokyo3d.MiniTokyo3D.gschema.xml
+gnome/data/com.minitokyo3d.MiniTokyo3D.metainfo.xml.in
+gnome/src/main.js
+gnome/src/preferences.js
+gnome/src/preferences.ui
+gnome/src/shortcuts-dialog.ui
+gnome/src/window.js
+gnome/src/window.ui

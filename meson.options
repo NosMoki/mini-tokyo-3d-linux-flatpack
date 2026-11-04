@@ -1,0 +1,8 @@
+# Plugins to bundle into the desktop app, equivalent to the MT3D_PLUGIN_*
+# environment variables of the web build (see .env.example). Point each at the
+# plugin's built file; leave empty to omit the plugin.
+option('plugin_precipitation', type: 'string', value: '', description: 'Path to the built Precipitation plugin')
+option('plugin_fireworks', type: 'string', value: '', description: 'Path to the built Fireworks plugin')
+option('plugin_livecam', type: 'string', value: '', description: 'Path to the built Live Camera plugin')
+option('plugin_plateau', type: 'string', value: '', description: 'Path to the built PLATEAU plugin')
+option('plugin_gtfs', type: 'string', value: '', description: 'Path to the built GTFS plugin')
